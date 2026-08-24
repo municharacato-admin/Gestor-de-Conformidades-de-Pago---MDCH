@@ -1,0 +1,11 @@
+/* Ícono oscuro para tema claro */
+[data-bs-theme="light"] input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* negro */
+    opacity: 1;
+}
+
+/* Ícono claro para tema oscuro */
+[data-bs-theme="dark"] input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0); /* blanco */
+    opacity: 1;
+}

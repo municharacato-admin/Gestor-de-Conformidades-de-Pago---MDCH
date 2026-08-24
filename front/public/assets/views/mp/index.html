@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es-pe">
+
+<head>
+    <script src="../../js/common/config.js"></script>
+    <script src="../../js/common/check_session.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title>Mesa de partes | MDCH</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#007bff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
+    <meta name="title" content="Sistema Informatico de Gestión de Normas | Municipalidad Distrital de Characato">
+    <meta name="author" content="Ivan Alejandro Noriega Llerena">
+    <meta name="description" content="Sistema orientado a gestionar Normas Legales y Documentos de Gestión de la Municipalidad Distrital de Characato">
+    <meta name="supported-color-schemes" content="light dark">
+    <!-- Estilos necesarios-->
+        <link rel="shortcut icon" href="../../img/common/placeHolder.ico" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css" integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q=" crossorigin="anonymous" media="print" onload="this.media='all'">
+        <link rel="stylesheet" href="../../addons/overlayscrollbars/overlayscrollbars.min.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="../../addons/adminLte/adminlte.min.css">
+        <link rel="stylesheet" href="../../addons/adminLte/bootstrap.corrections.css">
+        <link rel="stylesheet" href="../../addons/flatpickr/flatpickr.min.css">
+        <link rel="stylesheet" href="../../addons/choices/choices.min.css">
+        <link href="https://cdn.datatables.net/v/bs5/jszip-3.10.1/dt-2.3.4/af-2.7.1/b-3.2.5/b-colvis-3.2.5/b-html5-3.2.5/b-print-3.2.5/cr-2.1.1/cc-1.1.0/date-1.6.0/fc-5.0.5/fh-4.0.4/kt-2.12.1/r-3.0.7/rg-1.6.0/rr-1.5.0/sc-2.4.3/sb-1.8.4/sp-2.3.5/sl-3.1.2/sr-1.4.2/datatables.min.css" rel="stylesheet" integrity="sha384-WEosKPEk7YpGxFVSBIk+Weix9ust3vZ8xtzdAagVTlM6OuSPXniQ/we/NAxx9bVH" crossorigin="anonymous">
+    <!-- Fin Estilos necesarios-->
+
+    <!-- Estilos propios -->    
+    <!-- Fin Estilos propios -->
+</head>
+
+<body class="layout-fixed sidebar-expand-lg sidebar-open bg-body-tertiary">
+    <div class="app-wrapper">
+        <!-- Nav Bar -->
+        <nav class="app-header navbar navbar-expand bg-body">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-lte-toggle="sidebar" href="#"role="button"> <i class="bi bi-list"></i></a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static">
+                            <span class="theme-icon-active"> <i class="my-1"></i> </span>
+                            <span class="d-lg-none ms-2" id="bd-theme-text">Cambiar tema</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text" style="--bs-dropdown-min-width: 8rem;">
+                            <li>
+                                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light" aria-pressed="false">
+                                    <i class="bi bi-sun-fill me-2"></i> Light <i class="bi bi-check-lg ms-auto d-none"></i>
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+                                    <i class="bi bi-moon-fill me-2"></i> Dark <i class="bi bi-check-lg ms-auto d-none"></i>
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="true">
+                                    <i class="bi bi-brilliance me-2"></i> Auto <i class="bi bi-check-lg ms-auto d-none"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Side Bar -->
+            <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+                <div class="sidebar-brand">
+                    <a href="index.html" class="brand-link">
+                        <img src="../../img/common/placeHolder.webp" alt="Gpg Logo" class="brand-image opacity-75 shadow">
+                        <span class="brand-text fw-light">
+                            Mesa de Partes
+                        </span>
+                    </a>
+                </div>
+                <div class="sidebar-wrapper">
+                    <nav class="mt-2">
+                        <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="navigation"aria-label="Main navigation" data-accordion="false" id="navigation">
+                            <li class="nav-item">
+                                <a href="index.html" class="nav-link">
+                                    <i class="bi bi-journal-bookmark-fill"></i>
+                                    <p>Registrar expedientes</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" id="cerrar_sesion">
+                                <a href="#" class="nav-link bg-danger">
+                                    <i class="bi bi-file-person"></i>
+                                    <p>Cerrar sesión</p>
+                                </a> 
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+        <!-- Contenedor principal -->
+        <main class="app-main">
+            <div class="app-content-header">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h2 class="mb-0">Registrar expediente</h2>
+                        </div>
+                        <div class="col-sm-6">
+                            <!--No hay nada--> 
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            <div class="app-content">
+                <div class="container-fluid">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <!-- Deshabilitado hasta nuevas indicaciones
+                            <div class="mb-3">
+                                <label for="ipt-fecha-hora" class="form-label">Fecha y hora de recepción</label>
+                                <input id="ipt-fecha-hora" type="text" class="form-control" placeholder="Selecciona fecha y hora">
+                            </div>
+                            -->
+                            <div class="mb-3">
+                                <label for="ipt-unidad-organica" class="form-label">Unidad orgánica</label>
+                                <select class="form-select" id="ipt-unidad-organica"></select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="ipt-expediente" class="form-label">Nº expediente</label>
+                                <input type="text" class="form-control" id="ipt-numero-expediente">
+                            </div>
+                            <div class="text-center">
+                                <button id="btn-registrar-expediente" type="button" class="btn btn-success">Registrar expediente</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <table id="tabla" class="table table-striped w-100"></table>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="float-end d-none d-sm-inline">
+                Sistema Informatico de Gestión Documentaria | MDCH | Beta V 0.20.0
+            </div>
+            <strong>
+                Copyright &copy; 2025-2026 &nbsp;
+                <a href="https://municharacato.gob.pe" class="text-decoration-none">MDCH</a>.
+            </strong>
+            &nbsp;
+        </footer>
+    </div>
+
+    <!-- Scripts  necesarios-->
+        <script src="../../addons/overlayscrollbars/overlayscrollbars.browser.es6.min.js"></script>
+        <script src="../../addons/popper/popper.min.js"></script>
+        <script src="../../addons/bootstrap/bootstrap.bundle.min.js"></script>
+        <script src="../../addons/adminLte/adminlte.min.js"></script>
+        <script src="../../addons/overlayscrollbars/configuracion_inicial.js"></script>
+        <script src="../../js/common/relative_path_fix.js"></script>
+        <script src="../../js/common/theme_toggler.js"></script>
+        <script src="../../addons/SweetAlert2/sweetAlert2.js"></script>
+        <script src="../../addons/SweetAlert2/preloader.js"></script>
+        <script src="../../addons/SweetAlert2/avisos.js"></script>
+        <script src="../../js/common/logout.js"></script>
+        <script src="../../addons/just_validate/just-validate.production.min.js"></script>
+        <script src="../../addons/jquery/jquery-3.7.1.min.js"></script>
+        <script src="../../addons/flatpickr/flatpickr.min.js"></script>
+        <script src="../../addons/flatpickr/es.js"></script>
+        <script src="../../addons/choices/choices.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js" integrity="sha384-VFQrHzqBh5qiJIU0uGU5CIW3+OWpdGGJM9LBnGbuIH2mkICcFZ7lPd/AAtI7SNf7" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js" integrity="sha384-/RlQG9uf0M2vcTw3CX7fbqgbj/h8wKxw7C3zu9/GxcBPRKOEcESxaxufwRXqzq6n" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/v/bs5/jszip-3.10.1/dt-2.3.4/af-2.7.1/b-3.2.5/b-colvis-3.2.5/b-html5-3.2.5/b-print-3.2.5/cr-2.1.1/cc-1.1.0/date-1.6.0/fc-5.0.5/fh-4.0.4/kt-2.12.1/r-3.0.7/rg-1.6.0/rr-1.5.0/sc-2.4.3/sb-1.8.4/sp-2.3.5/sl-3.1.2/sr-1.4.2/datatables.min.js" integrity="sha384-ionzp9XJEQN5mJ0GfzUce+kHJ3R8rtaXE1NLv02gWvN3VJLuM6yGjamnB5XBrcpB" crossorigin="anonymous"></script>
+    <!-- Fin scripts  necesarios-->
+    <!-- scripts  propios-->
+        <script type="module" src= "../../js/main/mesa_de_partes/main.js"></script>
+    <!-- Fin scripts  necesarios-->
+</body>
+
+</html>

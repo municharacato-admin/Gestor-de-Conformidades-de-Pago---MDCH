@@ -1,0 +1,24 @@
+{
+  "name": "gestor-conformidades-pago-frontend",
+  "version": "1.0.0",
+  "description": "Módulo frontend del sistema gestor de conformidades de pago. Administra la interfaz de usuario, la interacción con los servicios del backend, la visualización de información, validaciones del lado del cliente y la gestión de las solicitudes realizadas por los usuarios.",
+  "main": "main.js",
+  "type": "module",
+  "author": {
+    "name": "Ivan Alejandro Noriega Llerena",
+    "role": "Desarrollador y mantenedor principal"
+  },
+  "contributors": [
+    {
+      "name": "Ivan Alejandro Noriega Llerena",
+    "role": "Desarrollador y mantenedor principal"
+    }
+  ],
+  "scripts": {
+    "dev": "node --watch main.js"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "express": "5.1.0"
+  }
+}

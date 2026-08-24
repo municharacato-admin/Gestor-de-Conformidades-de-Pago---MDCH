@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Redirigiendo...</title>
+    <script src="../js/common/config.js"></script>
+    <script src="../js/common/check_session.js"></script>
+    <script>
+        fetch(check_rol, {
+            method: "GET",
+            credentials: "include"
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (!data.success || !Array.isArray(data.rol) || data.rol.length === 0) {
+                    window.location.href = "../../index.html";
+                    return;
+                }
+
+                const idRol = data.rol[0].id_rol;
+                console.log(typeof(idRol));
+
+                switch (idRol) {
+                    case 1: // Administrador
+                        window.location.href = "administrador/index.html";
+                        break;
+                    case 2: // Mesa de partes
+                        window.location.href = "mp/index.html";
+                        break;
+                    case 3: // usuarios de unidad organica
+                        window.location.href = "usuario/index.html";
+                        break;
+                    default:
+                        window.location.href = "../../index.html";
+                }
+            })
+            .catch(() => {
+                window.location.href = "../../index.html";
+            });
+    </script>
+</head>
+
+<body>
+    <p>Redirigiendo según tu rol...</p>
+</body>
+
+</html>

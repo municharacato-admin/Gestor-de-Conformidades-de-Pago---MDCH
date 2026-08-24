@@ -1,0 +1,106 @@
+.contenedor-tiempo-linea {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-icono-tiempo-linea {
+    position: relative;
+    min-height: 35px;
+    min-width: 35px;
+    border-radius: 100%;
+}
+
+.color-contenedor-icono-tiempo-linea-en-proceso{
+    background-color: #FFBB22;
+}
+
+.color-contenedor-icono-tiempo-linea-pagado{
+    background-color: #00C220;
+}
+
+.color-contenedor-icono-tiempo-linea-cancelado{
+    background-color: #FF3E41;
+}
+
+.contenedor-icono-tiempo-linea i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -46%);
+    color: white;
+    font-size: 1.1rem;
+}
+
+.linea-tiempo {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+}
+
+[data-bs-theme="light"] .linea-tiempo {
+    background-color: rgb(202, 202, 202);
+}
+
+[data-bs-theme="dark"] .linea-tiempo {
+    background-color: rgb(119, 119, 119);
+}
+
+.card-contenedor-informacion-historial {
+    transition: all 0.3s ease;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+/* Efecto hover general */
+.card-contenedor-informacion-historial:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Fondo en modo claro */
+[data-bs-theme="light"] .card-contenedor-informacion-historial:hover {
+    background-color: #f8f9fa; /* gris claro Bootstrap */
+}
+
+/* Fondo en modo oscuro */
+[data-bs-theme="dark"] .card-contenedor-informacion-historial:hover {
+    background-color: #2c2f33; /* gris oscuro suave */
+}
+
+.cartel-unidad-organica{
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #98b4f136;
+    color:#667eea;
+}
+
+.cartel-estado-expediente{
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.cartel-estado-expediente-color-estado-en-proceso{
+    background-color: #a8b40036;
+    color:#898b00;
+}
+
+.cartel-estado-expediente-color-estado-pagado{
+    background-color: #01d42436;
+    color:#00a323;
+}
+
+.cartel-estado-expediente-color-estado-cancelado{
+    background-color: #b4000036;
+    color:#b32121;
+}
+
+.card-contenedor-justificacion {
+    border-left: 5px solid var(--bs-primary);
+    padding-left: 1rem;
+    background-color: rgba(0, 60, 255, 0.2);
+}

@@ -1,0 +1,51 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.pnpm-debug.log*
+
+# Entornos
+//.env
+//.env.*  # en caso uses archivos como .env.development
+
+# Sistemas operativos
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Build
+dist/
+build/
+.tmp/
+temp/
+
+# PM2 logs
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage
+coverage/
+
+# Test
+*.test.js.snap
+jest-test-results.json
+
+# Otros
+*.tgz
+*.zip
+
+# Bases de datos temporales o archivos de pruebas
+//*.sqlite
+//*.db

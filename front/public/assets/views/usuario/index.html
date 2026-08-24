@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es-pe">
+
+<head>
+    <script src="../../js/common/config.js"></script>
+    <script src="../../js/common/check_session.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title>Módulo usuario | MDCH</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#007bff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
+    <meta name="title" content="Sistema Informatico de Gestión de Normas | Municipalidad Distrital de Characato">
+    <meta name="author" content="Ivan Alejandro Noriega Llerena">
+    <meta name="description" content="Sistema orientado a gestionar Normas Legales y Documentos de Gestión de la Municipalidad Distrital de Characato">
+    <meta name="supported-color-schemes" content="light dark">
+    <!-- Estilos necesarios-->
+        <link rel="shortcut icon" href="../../img/common/placeHolder.ico" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css" integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q=" crossorigin="anonymous" media="print" onload="this.media='all'">
+        <link rel="stylesheet" href="../../addons/overlayscrollbars/overlayscrollbars.min.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="../../addons/adminLte/adminlte.min.css">
+        <link rel="stylesheet" href="../../addons/adminLte/bootstrap.corrections.css">
+        <link rel="stylesheet" href="../../addons/flatpickr/flatpickr.min.css">
+        <link rel="stylesheet" href="../../addons/choices/choices.min.css">
+        <link href="https://cdn.datatables.net/v/bs5/jszip-3.10.1/dt-2.3.4/af-2.7.1/b-3.2.5/b-colvis-3.2.5/b-html5-3.2.5/b-print-3.2.5/cr-2.1.1/cc-1.1.0/date-1.6.0/fc-5.0.5/fh-4.0.4/kt-2.12.1/r-3.0.7/rg-1.6.0/rr-1.5.0/sc-2.4.3/sb-1.8.4/sp-2.3.5/sl-3.1.2/sr-1.4.2/datatables.min.css" rel="stylesheet" integrity="sha384-WEosKPEk7YpGxFVSBIk+Weix9ust3vZ8xtzdAagVTlM6OuSPXniQ/we/NAxx9bVH" crossorigin="anonymous">
+    <!-- Fin Estilos necesarios-->
+
+    <!-- Estilos propios -->
+        <link rel="stylesheet" href="../../css/timeline.css">
+        <link rel="stylesheet" href="../../css/kpis_stats_cards.css">
+        <link rel="stylesheet" href="../../css/kpi_cards_area.css">
+    <!-- Fin Estilos propios -->
+</head>
+
+<body class="layout-fixed sidebar-expand-lg sidebar-open bg-body-tertiary">
+    <!-- Modales -->
+    <!-- Modal de derivar expediente -->
+        <div class="modal fade" id="modal-derivar-expediente" tabindex="-1" aria-labelledby="modal-derivar-expediente" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="">Derivar expediente</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <input type="text" style="display:none"  id="ipt-derivar-exp-container">
+                        </div>
+                        <div class="mb-3">
+                            <label for="ipt-unidad-organica" class="form-label">Unidad orgánica</label>
+                            <select class="form-select" id="ipt-unidad-organica"></select>
+                        </div>
+                        <div class="">
+                            <label for="ipt-justificacion-derivar" class="form-label">Justificación</label>
+                            <textarea class="form-control" id="ipt-justificacion-derivar" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="btn-derivar-exp">Derivar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Modal de cancelar expediente -->
+        <div class="modal fade" id="modal-cancelar-expediente" tabindex="-1" aria-labelledby="modal-cancelar-expediente" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="">Cancelar expediente</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <input type="text" style="display:none"  id="ipt-cancelar-exp-container">
+                        </div>
+                        <div class="">
+                            <label for="ipt-justificacion-cancelar" class="form-label">Justificación</label>
+                            <textarea class="form-control" id="ipt-justificacion-cancelar" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" id="btn-cancelar-exp">Cancelar exp.</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Modal historial -->
+        <div class="modal fade" id="modal_historial" tabindex="-1" aria-labelledby="modal_diccionario_entregables" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-fullscreen-md-down modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5"><i class="bi bi-clock-history"></i>&nbsp;Historial del expediente</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row" id="contenedor-body-historial">
+                            <div class="col-1 contenedor-tiempo-linea">
+                                <div class="linea-tiempo">
+                                </div>
+                                <div class="contenedor-icono-tiempo-linea color-contenedor-icono-tiempo-linea-pagado">
+                                    <i class="bi bi-cash-stack"></i>
+                                </div>
+                            </div>
+                            <div class="col-11 pt-3 pb-3">
+                                <div class="card card-contenedor-informacion-historial">
+                                    <div class="card-body">
+                                        <div class="row g-3">
+                                            <div class="col-lg-10 col-md-12 text-center text-lg-start">
+                                                <span class="cartel-unidad-organica">
+                                                    Mesa de partes
+                                                </span>
+                                                &nbsp;
+                                                <i class="bi bi-signpost-split-fill" style="font-size: 1.2rem;"></i>
+                                                &nbsp;
+                                                <span class="cartel-unidad-organica">
+                                                    Logística
+                                                </span>
+                                            </div>
+                                            <div class="col-lg-2 col-md-12 text-center text-lg-end">
+                                                <span class="cartel-estado-expediente cartel-estado-expediente-color-estado-cancelado">
+                                                    Cancelado
+                                                </span>
+                                            </div>
+                                            <div class="col-md-12 col-lg-6 text-center fw-bold">
+                                                <i class="bi bi-send"></i>&nbsp;&nbsp;Enviado: 25/15/2025
+                                            </div>
+                                            <div class="col-md-12 col-lg-6 text-center fw-bold">
+                                                <i class="bi bi-send-check"></i>&nbsp;&nbsp;Recepcionado: 25/15/2025
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="card card-contenedor-justificacion">
+                                                    <div class="card-body">
+                                                        <span class="fw-bold">
+                                                            Justificación:
+                                                        </span>
+                                                        &nbsp;
+                                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium optio eos laudantium officiis accusamus dolore similique tenetur assumenda, maxime velit ut dolores voluptatem ducimus consectetur a vel libero delectus sit?
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Modal visor historial de expedientes por unidad organica -->
+        <div class="modal fade" id="modal_historial_expedientes_uo" tabindex="-1" aria-labelledby="modal_historial_expedientes_uo" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-fullscreen-md-down modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5"><i class="bi bi-clock-history"></i>&nbsp;Historial de expedientes en curso</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row" id="contenedor-body-historial-por-uo">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Fin modales -->
+    <div class="app-wrapper">
+        <!-- Nav Bar -->
+        <nav class="app-header navbar navbar-expand bg-body">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-lte-toggle="sidebar" href="#"role="button"> <i class="bi bi-list"></i></a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <button class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static">
+                            <span class="theme-icon-active"> <i class="my-1"></i> </span>
+                            <span class="d-lg-none ms-2" id="bd-theme-text">Cambiar tema</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text" style="--bs-dropdown-min-width: 8rem;">
+                            <li>
+                                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light" aria-pressed="false">
+                                    <i class="bi bi-sun-fill me-2"></i> Light <i class="bi bi-check-lg ms-auto d-none"></i>
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+                                    <i class="bi bi-moon-fill me-2"></i> Dark <i class="bi bi-check-lg ms-auto d-none"></i>
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="true">
+                                    <i class="bi bi-brilliance me-2"></i> Auto <i class="bi bi-check-lg ms-auto d-none"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Side Bar -->
+            <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+                <div class="sidebar-brand">
+                    <a href="index.html" class="brand-link">
+                        <img src="../../img/common/placeHolder.webp" alt="Gpg Logo" class="brand-image opacity-75 shadow">
+                        <span class="brand-text fw-light">
+                            Usuario
+                        </span>
+                    </a>
+                </div>
+                <div class="sidebar-wrapper">
+                    <nav class="mt-2">
+                        <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="navigation"aria-label="Main navigation" data-accordion="false" id="navigation">
+                            <li class="nav-item">
+                                <a href="index.html" class="nav-link">
+                                    <i class="bi bi-journal-bookmark-fill"></i>
+                                    <p>Administrar expedientes</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" id="cerrar_sesion">
+                                <a href="#" class="nav-link bg-danger">
+                                    <i class="bi bi-file-person"></i>
+                                    <p>Cerrar sesión</p>
+                                </a> 
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+        <!-- Contenedor principal -->
+        <main class="app-main">
+            <div class="app-content-header">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h2 class="mb-0">Administrar expedientes</h2>
+                        </div>
+                        <div class="col-sm-6">
+                            <!--No hay nada--> 
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            <div class="app-content">
+                <div class="container-fluid">
+                    <div class="row justify-content-center" id="kpis-card-container">
+                    </div>
+                    <div class="row justify-content-center" id="chart-card-container">
+                    </div>
+                    <div class="row" id="kpi-cards-container">            
+                    </div>
+                    <div class="card">
+                        <nav>
+                            <div class="nav nav-tabs" id="" role="tablist">
+                                <button class="nav-link" id="" data-bs-toggle="tab" data-bs-target="#tabla-no-recepcionados"
+                                    type="button" role="tab" aria-controls="nav-home" aria-selected="true">Por recepcionar</button>
+                                <button class="nav-link active" id="" data-bs-toggle="tab" data-bs-target="#tabla-recepcionados"
+                                    type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Recepcionados</button>
+                                <button class="nav-link" id="pestania-derivados" data-bs-toggle="tab" data-bs-target="#derivados" style="display: none;"
+                                    type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Derivados</button>
+                                <button class="nav-link" id="pestania-cancelados" data-bs-toggle="tab" data-bs-target="#cancelados"
+                                    type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Cancelados</button>
+                                <button class="nav-link" id="pestania-pagados" data-bs-toggle="tab" data-bs-target="#pagados"
+                                    type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Pagados</button>
+                            </div>
+                        </nav>
+                        <div class="card-body">
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade" id="tabla-no-recepcionados" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                                    <table id="tbl-no-recepcionados" class="table table-striped w-100"></table>
+                                </div>
+                                <div class="tab-pane fade show active" id="tabla-recepcionados" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                                    <table id="tbl-recepcionados" class="table table-striped w-100"></table>
+                                </div>
+                                <div class="tab-pane fade" id="derivados" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                                    <table id="tbl-derivados" class="table table-striped w-100"></table>
+                                </div>
+                                <div class="tab-pane fade" id="cancelados" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                                    <table id="tbl-cancelados" class="table table-striped w-100"></table>
+                                </div>
+                                <div class="tab-pane fade" id="pagados" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                                    <table id="tbl-pagados" class="table table-striped w-100"></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="float-end d-none d-sm-inline">
+                Sistema Informatico de Gestión Documentaria | MDCH | Beta V 0.20.0
+            </div>
+            <strong>
+                Copyright &copy; 2025-2026 &nbsp;
+                <a href="https://municharacato.gob.pe" class="text-decoration-none">MDCH</a>.
+            </strong>
+            &nbsp;
+        </footer>
+    </div>
+
+    <!-- Scripts  necesarios-->
+        <script src="../../addons/overlayscrollbars/overlayscrollbars.browser.es6.min.js"></script>
+        <script src="../../addons/popper/popper.min.js"></script>
+        <script src="../../addons/bootstrap/bootstrap.bundle.min.js"></script>
+        <script src="../../addons/adminLte/adminlte.min.js"></script>
+        <script src="../../addons/overlayscrollbars/configuracion_inicial.js"></script>
+        <script src="../../js/common/relative_path_fix.js"></script>
+        <script src="../../js/common/theme_toggler.js"></script>
+        <script src="../../addons/SweetAlert2/sweetAlert2.js"></script>
+        <script src="../../addons/SweetAlert2/preloader.js"></script>
+        <script src="../../addons/SweetAlert2/avisos.js"></script>
+        <script src="../../js/common/logout.js"></script>
+        <script src="../../addons/just_validate/just-validate.production.min.js"></script>
+        <script src="../../addons/jquery/jquery-3.7.1.min.js"></script>
+        <script src="../../addons/flatpickr/flatpickr.min.js"></script>
+        <script src="../../addons/flatpickr/es.js"></script>
+        <script src="../../addons/choices/choices.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js" integrity="sha384-VFQrHzqBh5qiJIU0uGU5CIW3+OWpdGGJM9LBnGbuIH2mkICcFZ7lPd/AAtI7SNf7" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js" integrity="sha384-/RlQG9uf0M2vcTw3CX7fbqgbj/h8wKxw7C3zu9/GxcBPRKOEcESxaxufwRXqzq6n" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/v/bs5/jszip-3.10.1/dt-2.3.4/af-2.7.1/b-3.2.5/b-colvis-3.2.5/b-html5-3.2.5/b-print-3.2.5/cr-2.1.1/cc-1.1.0/date-1.6.0/fc-5.0.5/fh-4.0.4/kt-2.12.1/r-3.0.7/rg-1.6.0/rr-1.5.0/sc-2.4.3/sb-1.8.4/sp-2.3.5/sl-3.1.2/sr-1.4.2/datatables.min.js" integrity="sha384-ionzp9XJEQN5mJ0GfzUce+kHJ3R8rtaXE1NLv02gWvN3VJLuM6yGjamnB5XBrcpB" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+    <!-- Fin scripts  necesarios-->
+    <!-- scripts  propios-->
+        <script type="module" src= "../../js/main/usuario/main.js"></script>
+    <!-- Fin scripts  necesarios-->
+</body>
+
+</html>
