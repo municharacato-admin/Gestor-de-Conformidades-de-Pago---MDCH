@@ -1,0 +1,24 @@
+GESTOR DE CONFORMIDADES DE PAGO – MDCH
+Municipalidad Distrital de Characato
+
+Licencia declarada por el repositorio: Apache License, Version 2.0
+Identificador SPDX: Apache-2.0
+
+Con sujeción íntegra a la Apache License 2.0, la licencia permite usar,
+reproducir, preparar obras derivadas y distribuir el software, en forma de
+código fuente u objeto. También incluye una concesión de patentes en los
+términos establecidos por la licencia.
+
+Quien redistribuya el software debe, entre otras condiciones:
+
+1. entregar a los destinatarios una copia de la licencia;
+2. identificar de manera visible los archivos modificados;
+3. conservar los avisos de derechos de autor, patentes, marcas y atribución
+   que correspondan;
+4. conservar una copia legible del archivo NOTICE cuando resulte aplicable;
+5. no usar nombres o marcas de la entidad fuera de lo permitido por la
+   licencia.
+
+Este documento es únicamente informativo e institucional. No sustituye,
+modifica ni amplía los términos oficiales. Ante cualquier diferencia,
+prevalece el texto completo incluido en el archivo LICENSE.
