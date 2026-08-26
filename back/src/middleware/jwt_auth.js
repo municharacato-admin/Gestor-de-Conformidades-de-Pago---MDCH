@@ -1,3 +1,5 @@
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 import jwt from "jsonwebtoken";
 
 export const verifyToken = (req, res, next) => {

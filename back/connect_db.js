@@ -1,3 +1,5 @@
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 import dotenv from 'dotenv'
 import { Pool } from 'pg'
 

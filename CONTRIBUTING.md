@@ -1,5 +1,7 @@
 # Contribuir al Gestor de Conformidades de Pago – MDCH
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 Estas pautas ordenan el desarrollo y la revisión de cambios en el proyecto.
 
 ## Preparación

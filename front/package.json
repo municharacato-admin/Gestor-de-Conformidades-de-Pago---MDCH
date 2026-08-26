@@ -4,6 +4,20 @@
   "description": "Módulo frontend del sistema gestor de conformidades de pago. Administra la interfaz de usuario, la interacción con los servicios del backend, la visualización de información, validaciones del lado del cliente y la gestión de las solicitudes realizadas por los usuarios.",
   "main": "main.js",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/municharacato-admin/Gestor-de-Conformidades-de-Pago---MDCH.git"
+  },
+  "homepage": "https://github.com/municharacato-admin/Gestor-de-Conformidades-de-Pago---MDCH#readme",
+  "bugs": {
+    "url": "https://github.com/municharacato-admin/Gestor-de-Conformidades-de-Pago---MDCH/issues"
+  },
+  "keywords": [
+    "municipalidad",
+    "expedientes",
+    "conformidades-de-pago",
+    "software-publico-peruano"
+  ],
   "author": {
     "name": "Ivan Alejandro Noriega Llerena",
     "role": "Desarrollador y mantenedor principal"
@@ -15,7 +29,11 @@
     }
   ],
   "scripts": {
+    "start": "node main.js",
     "dev": "node --watch main.js"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "license": "Apache-2.0",
   "dependencies": {

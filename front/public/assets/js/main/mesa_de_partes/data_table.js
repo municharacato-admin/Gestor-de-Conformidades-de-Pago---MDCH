@@ -1,3 +1,5 @@
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 let tablaExpedientes = null;
 let intervaloActualizacion = null; // 🕒 control del intervalo
 

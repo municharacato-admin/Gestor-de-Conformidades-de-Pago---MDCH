@@ -1,5 +1,7 @@
 # Instalación para desarrollo
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 ## 1. Clonar
 
 ```powershell
@@ -29,23 +31,24 @@ psql -v ON_ERROR_STOP=1 --host localhost --port 5432 --username gestor_owner --d
 
 ## 3. Instalar backend
 
-Antes de crear `back/.env`, corrija `back/.gitignore`: la regla actual `//.env` no coincide con ese archivo. Debe existir una regla efectiva para `/.env` y `/.env.*`, conservando `!/.env.example`. Desde la raíz, verifique:
+Antes de crear `back/.env`, puede comprobar desde la raíz que el archivo está excluido del control de versiones:
 
 ```powershell
 git check-ignore -v back/.env
 ```
 
-No continúe si el comando no identifica una regla. Después instale y copie el ejemplo:
+Después instale las dependencias fijadas y copie el ejemplo:
 
 ```powershell
 cd back
-npm install
+npm ci
 Copy-Item .env.example .env
 ```
 
 Edite `back/.env` con valores locales:
 
 ```env
+PORT=5004
 CORS_ORIGIN=http://localhost:5003
 DB_HOST=localhost
 DB_PORT=5432
@@ -54,8 +57,6 @@ DB_USER=gestor_app
 DB_PASSWORD=REEMPLAZAR_LOCALMENTE
 SECRET_JWT_KEY=GENERAR_UN_VALOR_LARGO_Y_ALEATORIO
 ```
-
-`CORS_ORIGIN` aún no se aplica en código. Manténgala documentada y corrija el backend antes de producción.
 
 Inicie:
 
@@ -67,19 +68,13 @@ Debe mostrar que escucha en 5004. No existe endpoint de salud.
 
 ## 4. Configurar frontend
 
-Abra `front/public/assets/js/common/config.js` y, solo para el entorno local, cambie:
-
-```javascript
-const base_url = "http://localhost:5004/";
-```
-
-Use `localhost` de forma consistente; mezclarlo con `127.0.0.1` cambia el contexto de cookies/origen.
+El frontend usa de forma predeterminada el host de la página y el puerto `5004` para la API. Use `localhost` de forma consistente; mezclarlo con `127.0.0.1` cambia el contexto de cookies/origen.
 
 En otra terminal:
 
 ```powershell
 cd front
-npm install
+npm ci
 npm run dev
 ```
 

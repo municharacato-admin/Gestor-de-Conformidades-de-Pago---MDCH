@@ -1,3 +1,5 @@
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 function verificar_login() {
     mostrar_preloader("Verificando...")
     const usuario = document.querySelector('#usuario').value;

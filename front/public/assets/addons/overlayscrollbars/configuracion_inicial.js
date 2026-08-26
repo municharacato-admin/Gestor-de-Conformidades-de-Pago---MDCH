@@ -1,3 +1,5 @@
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper"
 const Default = {
     scrollbarTheme: "os-theme-light",

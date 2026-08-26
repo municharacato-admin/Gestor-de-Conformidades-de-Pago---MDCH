@@ -1,3 +1,5 @@
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 -- Datos mínimos de demostración.
 -- No contiene usuarios, contraseñas, expedientes ni información institucional real.
 -- Debe ejecutarse después de database/schema.sql.

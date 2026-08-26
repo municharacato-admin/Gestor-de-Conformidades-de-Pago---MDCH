@@ -1,3 +1,5 @@
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 import conect from '../../connect_db.js';
 
 export async function get_estadisticas_administrador (){

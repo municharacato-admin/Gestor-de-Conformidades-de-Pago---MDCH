@@ -1,5 +1,7 @@
 # Documentación del Gestor de Conformidades de Pago – MDCH
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 Este índice reúne la documentación funcional y técnica del sistema. El código y el esquema de base de datos vigentes son la referencia para su mantenimiento.
 
 ## Catálogo
@@ -38,12 +40,21 @@ Este índice reúne la documentación funcional y técnica del sistema. El códi
 - [Autenticación](05-api/autenticacion.md)
 - [Códigos de respuesta](05-api/codigos-respuesta.md)
 
+### Uso y administración
+
+- [Manual de usuario](06-manual-usuario/manual-usuario.md)
+- [Manual de administración](07-manual-administrador/manual-administrador.md)
+
 ### Desarrollo y mantenimiento
 
 - [Estructura del proyecto](08-desarrollo/estructura-proyecto.md)
 - [Guía de desarrollo](08-desarrollo/guia-desarrollo.md)
 - [Convenciones](08-desarrollo/convenciones.md)
 - [Mantenimiento](08-desarrollo/mantenimiento.md)
+
+### Publicación
+
+- [Software Público Peruano](09-publicacion-software-publico.md)
 
 ### Pruebas
 
@@ -56,6 +67,7 @@ Este índice reúne la documentación funcional y técnica del sistema. El códi
 - [Aviso de licencia](../LICENCIA.txt)
 - [Autoría](../AUTHORS.md)
 - [Atribuciones](../NOTICE)
+- [Componentes de terceros](../THIRD_PARTY_NOTICES.md)
 - [Cambios](../CHANGELOG.md)
 - [Contribución](../CONTRIBUTING.md)
 

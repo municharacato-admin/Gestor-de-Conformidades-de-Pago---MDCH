@@ -1,5 +1,7 @@
 # Estructura del proyecto
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 ## Árbol funcional
 
 ```text
@@ -42,6 +44,7 @@
 | `README.md` | entrada, instalación rápida y enlaces |
 | `LICENSE` / `LICENCIA.txt` | licencia oficial declarada y resumen institucional |
 | `AUTHORS.md` / `NOTICE` | autoría y atribución |
+| `THIRD_PARTY_NOTICES.md` | componentes y licencias de terceros |
 | `CHANGELOG.md` | versiones |
 | `CONTRIBUTING.md` | colaboración |
 
@@ -128,10 +131,12 @@ Copias locales de bibliotecas minificadas. Algunas vistas también usan CDN.
 
 ## Documentación
 
-`docs/` contiene la documentación Markdown y los manuales de referencia:
+`docs/` contiene la documentación Markdown del proyecto:
 
-- manual de instalación;
-- manual general de usuarios;
-- entregas por administrador, mesa de partes y área usuaria.
+- descripción funcional y arquitectura;
+- instalación, configuración y operación;
+- base de datos y API;
+- manuales de usuario y administración;
+- desarrollo, mantenimiento, pruebas y publicación.
 
 La documentación Markdown describe la implementación vigente.

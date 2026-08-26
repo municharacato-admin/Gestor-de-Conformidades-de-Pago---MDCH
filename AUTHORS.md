@@ -1,5 +1,7 @@
 # Autoría y mantenimiento
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 ## Autores
 
 - **Omar Lopez Cusi** - Autor intelectual.

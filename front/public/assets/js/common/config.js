@@ -1,6 +1,10 @@
-//IMPORTANTE: Cambiar la URL base según el entorno de desarrollo o producción
+/* @license Apache-2.0; ver LICENCIA.txt */
 
-const base_url = "https://example-domain.com/";
+// Puede definirse globalThis.GCP_CONFIG.apiBaseUrl antes de cargar este archivo.
+const configuredBaseUrl = globalThis.GCP_CONFIG?.apiBaseUrl;
+const base_url = new URL(
+  configuredBaseUrl ?? `${window.location.protocol}//${window.location.hostname}:5004/`
+).href;
 
 const login = base_url + "login";
 const check_session = base_url + "check_session";

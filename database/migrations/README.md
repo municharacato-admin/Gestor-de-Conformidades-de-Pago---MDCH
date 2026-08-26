@@ -1,5 +1,7 @@
 # Migraciones
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 No se identificó un sistema de migraciones ni un historial previo. `database/schema.sql` constituye la línea base estructural documentada.
 
 Para cambios futuros se recomienda:

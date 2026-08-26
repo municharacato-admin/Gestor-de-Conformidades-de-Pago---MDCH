@@ -1,5 +1,7 @@
 # Descripción general
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 ## Presentación
 
 El **Gestor de Conformidades de Pago – MDCH** es una aplicación web de la Municipalidad Distrital de Characato para registrar y seguir expedientes asociados al proceso de conformidad de pago mientras circulan entre unidades orgánicas.
@@ -105,7 +107,7 @@ flowchart LR
 
 - puerto y URL de API codificados;
 - dependencia parcial de CDNs;
-- ausencia de pruebas automatizadas y lockfiles;
+- ausencia de pruebas automatizadas;
 - sin paginación en la API; DataTables pagina localmente después de descargar el listado completo;
 - actualizaciones por sondeo de hasta cinco solicitudes por segundo en la vista de usuario;
 - cálculo de ocho días que omite feriados;

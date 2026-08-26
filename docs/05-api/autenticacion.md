@@ -1,5 +1,7 @@
 # Autenticación y autorización
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 ## Implementación actual
 
 La versión 1.0.0 utiliza credenciales locales almacenadas en PostgreSQL, bcrypt y un JWT dentro de una cookie.

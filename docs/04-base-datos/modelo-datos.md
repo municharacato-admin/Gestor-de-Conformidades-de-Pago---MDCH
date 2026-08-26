@@ -1,5 +1,7 @@
 # Modelo de datos
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 ## Fuente
 
 El modelo se obtuvo de `database/bk-clean.sql` y se trasladó sin filas a `database/schema.sql`. El volcado declara PostgreSQL 17.6 y contiene cinco tablas, cuatro secuencias, claves primarias y restricciones únicas. No contiene claves foráneas.

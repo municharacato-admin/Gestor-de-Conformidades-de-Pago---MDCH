@@ -1,5 +1,7 @@
 # Arquitectura del backend
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 ## Resumen
 
 El backend es una aplicación Node.js con Express 5.1.0 y módulos ECMAScript. Expone directamente 24 endpoints HTTP, valida la cookie JWT con un middleware y ejecuta SQL sobre PostgreSQL mediante un `pg.Pool` global.
@@ -22,15 +24,15 @@ No existen `Router` de Express, controladores, servicios ni modelos separados. L
 | --- | --- |
 | Entrada | `back/main.js` |
 | Módulos | ESM mediante `"type": "module"` |
-| Puerto | `5004` fijo en código |
-| Ejecución disponible | `npm run dev` → `node --watch main.js` |
+| Puerto | `PORT`, con valor predeterminado `5004` |
+| Ejecución disponible | `npm start` o `npm run dev` |
 | JSON | `express.json()` |
 | Cookies | `cookie-parser` |
-| CORS | `origin: true`, credenciales habilitadas |
+| CORS | lista exacta de `CORS_ORIGIN`, credenciales habilitadas |
 | Base de datos | `pg.Pool` en `back/connect_db.js` |
 | Variables | `back/.env.example` |
 
-No hay script `start`, health check, prefijo `/api`, versionado de API, manejador global de errores ni configuración de producción. La variable `CORS_ORIGIN` está declarada, pero `main.js` no la usa.
+No hay health check, prefijo `/api`, versionado de API ni manejador global de errores. La configuración de infraestructura de producción corresponde al entorno de despliegue.
 
 ## Organización
 
@@ -172,5 +174,5 @@ No hay paginación del lado servidor ni caché. Los `COUNT` de PostgreSQL suelen
 | jsonwebtoken | 9.0.2 | firma y verificación JWT |
 | cookie-parser | 1.4.7 | lectura de `access_token` |
 | cors | 2.8.5 | cabeceras CORS |
-| Joi | 18.0.1 | dos esquemas de validación |
+| Joi | 18.2.5 | dos esquemas de validación |
 | dotenv | 17.2.3 | carga de `.env` |

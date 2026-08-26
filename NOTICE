@@ -5,10 +5,13 @@ Primera constancia Git disponible: 2026
 Entidad responsable:
 Municipalidad Distrital de Characato
 
-Autoría original: **Revisar AUTHORS.md**
+Autores y mantenimiento: consulte AUTHORS.md.
 
 Este producto incluye componentes de terceros distribuidos dentro de
 front/public/assets/addons.
+
+El inventario de componentes y licencias se encuentra en
+THIRD_PARTY_NOTICES.md.
 
 Las redistribuciones y obras derivadas deben conservar este aviso cuando
 corresponda de acuerdo con Apache License 2.0. Quien modifique el software debe

@@ -1,5 +1,7 @@
 # Solución de problemas
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 | Problema | Causa probable | Solución |
 | --- | --- | --- |
 | `psql` no existe | cliente PostgreSQL no instalado o fuera de PATH | instale las herramientas y reabra terminal |
@@ -12,10 +14,10 @@
 | sesión no persiste | cookie `Secure` en HTTP, host mezclado o CORS | use `localhost` consistente, revise HTTPS/origen/atributos |
 | error CORS | proxy/navegador o credenciales mal configuradas; tras endurecer CORS, origen no permitido | alinee URL exacta, proxy, CORS y `credentials:include` |
 | permiso denegado en archivos/servicio | cuenta sin acceso, ACL o servicio PostgreSQL restringido | compruebe propietario/permisos y ejecute con la cuenta prevista; no eleve la aplicación a administrador |
-| frontend llama dominio de ejemplo | `config.js` sin editar | configure `base_url` con barra final |
+| frontend no alcanza la API | host/puerto distintos a los predeterminados | defina `globalThis.GCP_CONFIG.apiBaseUrl` antes de cargar `config.js` |
 | puerto 5003/5004 ocupado | otro proceso | identifique el proceso; los puertos aún están fijos |
 | frontend muestra 404 de assets | se inició desde otra carpeta | ejecute `npm run dev` dentro de `front/` |
-| `npm install` falla | red, proxy, versión Node o binario bcrypt | revise error, versión probada y acceso al registro |
+| `npm ci` falla | red, proxy, versión Node o binario bcrypt | revise error, versión probada y acceso al registro |
 | backend no inicia | dependencia ausente, sintaxis, puerto o configuración | ejecute `node --check back/main.js`, reinstale dependencias y revise el primer error sin imprimir secretos |
 | tabla vacía | usuario sin unidad/datos o API falló | revise Network y el sobre `success/response` |
 | indicadores vacíos/erróneos | consultas o IDs especiales no coinciden | verifique seed/IDs y logs sanitizados |

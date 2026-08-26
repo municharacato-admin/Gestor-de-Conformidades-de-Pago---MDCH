@@ -1,4 +1,6 @@
 
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 import { abrir_modal_historial } from "./ver_historial.js"
 let universal_data;
 const modal = new bootstrap.Modal(document.getElementById("modal_historial_expedientes_uo"));

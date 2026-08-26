@@ -1,3 +1,5 @@
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 document.addEventListener('DOMContentLoaded', () => {
     const cssLink = document.querySelector('link[href*="../../addons/bootstrap/bootstrap.min.css"]');
     if (!cssLink) {

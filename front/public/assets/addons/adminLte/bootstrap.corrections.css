@@ -1,3 +1,5 @@
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 /* Ícono oscuro para tema claro */
 [data-bs-theme="light"] input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1); /* negro */

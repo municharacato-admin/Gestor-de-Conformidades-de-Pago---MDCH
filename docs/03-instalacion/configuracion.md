@@ -1,12 +1,15 @@
 # Configuración
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 ## Backend
 
 `back/.env.example` declara:
 
 | Variable | Requerida por esta guía | Descripción | Ejemplo ficticio |
 | --- | --- | --- | --- |
-| `CORS_ORIGIN` | prevista | origen exacto del frontend; actualmente no se usa | `http://localhost:5003` |
+| `PORT` | no | puerto de la API; usa `5004` si se omite | `5004` |
+| `CORS_ORIGIN` | sí | uno o más orígenes exactos del frontend, separados por comas | `http://localhost:5003` |
 | `DB_HOST` | sí | host PostgreSQL | `localhost` |
 | `DB_PORT` | sí | puerto PostgreSQL | `5432` |
 | `DB_NAME` | sí | base | `gestor_conformidades` |
@@ -20,10 +23,8 @@ El código no valida estas variables y `pg` puede aplicar valores predeterminado
 
 El código no valida estas variables al iniciar. Una variable vacía fallará al conectar o firmar durante una solicitud.
 
-### No configurables por entorno
+### Valores aún definidos en código
 
-- backend: puerto `5004`;
-- frontend: puerto `5003`;
 - vigencia JWT: 48 horas;
 - atributos de cookie;
 - zona `America/Lima`;
@@ -43,24 +44,31 @@ front/public/assets/js/common/config.js
 Valor distribuido:
 
 ```javascript
-const base_url = "https://example-domain.com/";
+const configuredBaseUrl = globalThis.GCP_CONFIG?.apiBaseUrl;
+const base_url = new URL(
+  configuredBaseUrl ?? `${window.location.protocol}//${window.location.hostname}:5004/`
+).href;
 ```
 
-Debe terminar en `/` porque las rutas se concatenan. No hay variables de entorno para el navegador.
+De forma predeterminada usa el host actual y el puerto `5004`. Para una API en otra URL, defina antes de cargar el módulo:
+
+```html
+<script>
+  globalThis.GCP_CONFIG = { apiBaseUrl: "https://api.ejemplo.gob.pe/" };
+</script>
+```
+
+`new URL()` normaliza la barra final. El navegador no consume variables `.env` directamente.
 
 ## CORS
 
-Aunque existe `CORS_ORIGIN`, la API usa:
+La API convierte `CORS_ORIGIN` en una lista separada por comas y valida cada origen:
 
 ```javascript
-cors({
-  origin: true,
-  credentials: true,
-  exposedHeaders: ["set-cookie"]
-})
+const allowedOrigins = process.env.CORS_ORIGIN.split(",");
 ```
 
-Producción debe reemplazarlo por una lista exacta y rechazar otros orígenes. Con cookies no use `*`.
+Las solicitudes sin cabecera `Origin`, como las de herramientas de servidor, se aceptan. Con cookies no use `*`.
 
 ## Cookies
 
@@ -99,4 +107,4 @@ Si frontend/API comparten sitio, evalúe `SameSite=Lax/Strict` según los flujos
 | datos | ficticios | datos autorizados |
 | logs | consola sin secretos | estructurados y centralizados |
 
-Esta separación no está implementada aún.
+Los dominios, secretos, cookies, base de datos y observabilidad deben definirse para cada ambiente.

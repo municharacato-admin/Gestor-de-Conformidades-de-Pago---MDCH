@@ -1,3 +1,5 @@
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 import { iniciar_data_table, reiniciar_data_table } from "./data_table.js";
 
 document.addEventListener("DOMContentLoaded", async () => {

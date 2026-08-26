@@ -1,5 +1,7 @@
 # Guía de desarrollo
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 ## Preparación
 
 Siga [instalación para desarrollo](../03-instalacion/instalacion-desarrollo.md). Trabaje con una base desechable, usuarios ficticios y secretos locales.
@@ -10,7 +12,7 @@ Backend:
 
 ```powershell
 cd back
-npm install
+npm ci
 npm run dev
 ```
 
@@ -18,7 +20,7 @@ Frontend:
 
 ```powershell
 cd front
-npm install
+npm ci
 npm run dev
 ```
 
@@ -195,7 +197,7 @@ git diff --check
 git status --short
 ```
 
-Use herramientas aprobadas para secretos, SCA/SBOM y análisis estático. Revise también binarios, DOCX y dumps; `rg` no cubre su contenido interno.
+Use las herramientas institucionales de revisión de dependencias y análisis estático. Incluya los archivos binarios y volcados de datos en la revisión correspondiente.
 
 ## Definición de terminado
 

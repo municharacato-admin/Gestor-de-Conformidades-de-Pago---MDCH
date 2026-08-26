@@ -1,3 +1,5 @@
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 export function run_kpi_cards_engine(data) {
     render_cards(data);
 }

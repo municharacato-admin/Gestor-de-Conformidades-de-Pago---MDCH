@@ -1,8 +1,10 @@
 # Arquitectura del frontend
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 ## Tipo de aplicación
 
-El frontend es multipágina, sin framework SPA y sin compilación. `front/main.js` sirve `front/public/` mediante Express en el puerto fijo `5003`.
+El frontend es multipágina, sin framework SPA y sin compilación. `front/main.js` sirve `front/public/` mediante Express; usa `PORT` o el valor predeterminado `5003`.
 
 Debe ejecutarse desde `front/` porque `express.static('public')` resuelve una ruta relativa al directorio actual.
 
@@ -35,10 +37,13 @@ front/
 `config.js` contiene:
 
 ```javascript
-const base_url = "https://example-domain.com/";
+const configuredBaseUrl = globalThis.GCP_CONFIG?.apiBaseUrl;
+const base_url = new URL(
+  configuredBaseUrl ?? `${window.location.protocol}//${window.location.hostname}:5004/`
+).href;
 ```
 
-No existe `.env` de frontend ni inyección en tiempo de ejecución. Para desarrollo debe ajustarse a la API real, normalmente `http://localhost:5004/`. Este cambio manual es una limitación de reproducibilidad y no debe resolverse con dominios institucionales codificados.
+En desarrollo no requiere edición: usa el host actual y el puerto `5004`. En otra topología, una configuración cargada antes del módulo puede definir `globalThis.GCP_CONFIG.apiBaseUrl`. La URL se normaliza con barra final.
 
 ## Páginas y navegación
 

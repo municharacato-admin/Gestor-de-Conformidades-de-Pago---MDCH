@@ -1,5 +1,7 @@
 # Arquitectura de software
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 ## Vista general
 
 La implementación es una aplicación web de tres procesos:
@@ -39,7 +41,7 @@ HTML multipágina y JavaScript nativo. DataTables, Chart.js, AdminLTE, Bootstrap
 
 ## Comunicación frontend-backend
 
-`front/public/assets/js/common/config.js` define una URL absoluta y el navegador llama directamente a la API. No existe proxy del servidor frontend.
+`front/public/assets/js/common/config.js` deriva la URL de la API a partir del host actual y permite sobrescribirla mediante `globalThis.GCP_CONFIG.apiBaseUrl`. El navegador llama directamente a la API; no existe proxy del servidor frontend.
 
 Las solicitudes de sesión usan una cookie `HttpOnly` y `credentials: include`. Para separar orígenes se necesita:
 
@@ -48,7 +50,7 @@ Las solicitudes de sesión usan una cookie `HttpOnly` y `credentials: include`. 
 - atributos coherentes de cookie;
 - protección CSRF.
 
-La versión actual usa `origin: true` y no consume `CORS_ORIGIN`.
+El backend acepta los orígenes exactos declarados en `CORS_ORIGIN`; se pueden separar varios valores con comas.
 
 ## Flujo de solicitud
 

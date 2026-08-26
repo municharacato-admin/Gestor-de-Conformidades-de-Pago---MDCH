@@ -1,5 +1,7 @@
 # Flujo de información
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 ## Inicio de sesión
 
 ```mermaid

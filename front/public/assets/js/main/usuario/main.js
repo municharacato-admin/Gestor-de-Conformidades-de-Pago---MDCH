@@ -1,3 +1,5 @@
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 import { init_chart_engine } from "./chart_engine.js";
 import { inicializar_por_recepcionar } from "./por_recepcionar.js";
 import { inicializar_recepcionados } from "./recepcionados.js";

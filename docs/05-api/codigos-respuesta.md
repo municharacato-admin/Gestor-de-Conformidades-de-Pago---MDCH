@@ -1,5 +1,7 @@
 # Códigos de respuesta
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 ## Códigos explícitos en la versión 1.0.0
 
 | Código | Uso real | Ejemplo |

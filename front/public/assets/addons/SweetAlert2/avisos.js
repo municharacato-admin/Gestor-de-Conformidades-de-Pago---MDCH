@@ -1,3 +1,5 @@
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 document.addEventListener("DOMContentLoaded", function() {
 
     function aviso_exito (titulo){

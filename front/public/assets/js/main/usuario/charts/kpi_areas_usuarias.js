@@ -1,3 +1,5 @@
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 import { init_button_listener } from "../view_history_per_user.js";
 
 export function run_kpi_areas_usuarias_engine(data) {

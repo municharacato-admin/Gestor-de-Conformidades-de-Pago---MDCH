@@ -1,3 +1,5 @@
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 import conect from '../../connect_db.js';
 
 export async function post_no_recepcionar_exp_usuario(id_historial, id_usuario) {

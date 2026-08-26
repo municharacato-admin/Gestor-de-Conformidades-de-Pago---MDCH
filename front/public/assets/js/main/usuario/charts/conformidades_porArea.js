@@ -1,3 +1,5 @@
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 export function render_chart_estado_porGerencia(data) {
 
     if (!data || !data.Kpis_porGerencia) {

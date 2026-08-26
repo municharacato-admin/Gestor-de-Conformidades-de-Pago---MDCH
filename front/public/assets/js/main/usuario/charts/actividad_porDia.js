@@ -1,3 +1,5 @@
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 export function render_chart_actividad_porDia(data) {
     // Verificar que data existe y tiene la estructura esperada
     if (!data || !data.actividad_porDia) {

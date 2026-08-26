@@ -1,10 +1,12 @@
 # Requisitos del sistema
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 ## Requisitos técnicos
 
 | Componente | Evidencia | Estado |
 | --- | --- | --- |
-| Node.js | ESM y `node --watch`; sin campo `engines` | estable lts |
+| Node.js | ESM, `node --watch` y campo `engines` (`>=20`) | LTS vigente compatible |
 | npm | scripts en ambos `package.json` | obligatorio |
 | PostgreSQL | volcado originado en 17.6 y generado con pg_dump 18.4 | compatibilidad funcional |
 | Navegador | Fetch, módulos ES, Canvas, Intl, localStorage | navegador moderno |
@@ -20,7 +22,7 @@ El análisis se realizó con Node.js `24.19.0` y npm `11.17.0` disponibles en la
 - npm;
 - PostgreSQL compatible con el esquema;
 - conectividad TCP entre API y PostgreSQL;
-- puertos `5003` y `5004` disponibles en desarrollo, porque están fijos;
+- puertos `5003` y `5004` disponibles en desarrollo o valores alternativos definidos mediante `PORT`;
 - espacio para aplicación, base, logs y backups;
 - reloj sincronizado.
 
@@ -64,7 +66,7 @@ No hay mediciones para fijar CPU, memoria o almacenamiento. Como punto de partid
 | navegador → backend | 5004 en desarrollo | vía HTTPS/reverse proxy; no directo |
 | backend → PostgreSQL | 5432 habitual | solo red privada |
 
-PostgreSQL puede usar otro puerto mediante `DB_PORT`. Los puertos Node no son configurables por entorno en la versión actual.
+PostgreSQL puede usar otro puerto mediante `DB_PORT`. Cada proceso Node acepta su propio valor `PORT`.
 
 ## Dependencias externas
 
@@ -72,9 +74,7 @@ El frontend carga parte de DataTables, Chart.js, iconos, fuentes y recursos asoc
 
 ## Limitaciones de los requisitos actuales
 
-- no hay lockfiles;
 - no hay Dockerfile ni imagen;
-- no hay `engines`;
 - no hay pruebas de navegador o carga;
 - no hay definición de disponibilidad, RPO o RTO;
 - no hay soporte offline;

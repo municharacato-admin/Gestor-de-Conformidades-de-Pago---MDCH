@@ -1,5 +1,7 @@
 # Convenciones
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 ## Convenciones del proyecto
 
 Estas describen el código, no necesariamente prácticas recomendadas.

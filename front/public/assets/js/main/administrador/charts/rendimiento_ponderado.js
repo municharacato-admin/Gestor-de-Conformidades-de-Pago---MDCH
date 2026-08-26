@@ -1,3 +1,5 @@
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 export function render_chart_rendimiento_ponderado(data){
 
     // 1. calcular KPI

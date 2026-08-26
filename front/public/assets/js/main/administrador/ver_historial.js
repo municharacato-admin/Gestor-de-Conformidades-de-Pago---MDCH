@@ -1,3 +1,5 @@
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 const modal = new bootstrap.Modal(document.getElementById("modal_historial"));
 const contenedor_body_historial = document.getElementById("contenedor-body-historial");
 

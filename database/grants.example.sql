@@ -1,3 +1,5 @@
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 \set ON_ERROR_STOP on
 
 -- Ejecute conectado a gestor_conformidades como su propietario/migrador.
@@ -22,4 +24,3 @@ GRANT USAGE, SELECT
     ON SEQUENCE public.expedientes_id_seq,
                 public.historial_expedientes_id_seq
     TO gestor_app;
-

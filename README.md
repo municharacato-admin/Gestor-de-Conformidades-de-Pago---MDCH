@@ -1,6 +1,10 @@
 # Gestor de Conformidades de Pago – MDCH
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 Aplicación web para registrar y seguir expedientes de conformidad de pago entre las unidades orgánicas de la Municipalidad Distrital de Characato (MDCH).
+
+Este proyecto se distribuye como software de código abierto bajo Apache License 2.0 e incluye la documentación técnica necesaria para solicitar su incorporación a la Plataforma Nacional de Software Público Peruano.
 
 ## Información general
 
@@ -47,7 +51,7 @@ El frontend sirve HTML y JavaScript estático. La API mezcla rutas, lógica y SQ
 | pg | 8.16.3 | pool y consultas PostgreSQL |
 | bcrypt | 6.0.0 | hash y comparación de contraseñas |
 | jsonwebtoken | 9.0.2 | creación y verificación del JWT |
-| Joi | 18.0.1 | validación de inicio de sesión y alta de usuarios |
+| Joi | 18.2.5 | validación de inicio de sesión y alta de usuarios |
 | cookie-parser / cors / dotenv | 1.4.7 / 2.8.5 / 17.2.3 | cookies, CORS y entorno |
 | JavaScript, HTML y CSS | sin versión | lógica e interfaz multipágina |
 | AdminLTE / Bootstrap | 4.0.0-rc3 / 5.3.6 | layout y componentes |
@@ -113,9 +117,10 @@ psql -v ON_ERROR_STOP=1 -U gestor_owner -d gestor_conformidades -f database/gran
 
 ### 2. Configurar el backend
 
-Antes de copiar, corrija el patrón `//.env` de `back/.gitignore` y compruebe que `git check-ignore -v back/.env` reconoce el archivo. Después copie `back/.env.example` como `back/.env` y sustituya todos los marcadores localmente:
+Copie `back/.env.example` como `back/.env` y sustituya los marcadores localmente:
 
 ```dotenv
+PORT=5004
 CORS_ORIGIN=http://localhost:5003
 DB_HOST=127.0.0.1
 DB_PORT=5432
@@ -125,15 +130,13 @@ DB_PASSWORD=REEMPLAZAR_LOCALMENTE
 SECRET_JWT_KEY=GENERAR_UN_SECRETO_ALEATORIO_LOCAL
 ```
 
-`CORS_ORIGIN` está declarada, pero el código actual no la usa.
-
 ### 3. Instalar y ejecutar
 
 En una terminal:
 
 ```powershell
 cd back
-npm install
+npm ci
 npm run dev
 ```
 
@@ -141,11 +144,11 @@ En otra:
 
 ```powershell
 cd front
-npm install
+npm ci
 npm run dev
 ```
 
-Antes de abrir `http://localhost:5003`, edite localmente `front/public/assets/js/common/config.js` para que `base_url` apunte al backend y termine en `/`.
+Abra `http://localhost:5003`. De forma predeterminada, el frontend usa el mismo host en el puerto `5004`; para otra topología configure `globalThis.GCP_CONFIG.apiBaseUrl` antes de cargar `config.js`.
 
 La instalación detallada, el aprovisionamiento controlado de usuarios y las comprobaciones están en [Instalación de desarrollo](docs/03-instalacion/instalacion-desarrollo.md).
 
@@ -165,7 +168,9 @@ La instalación detallada, el aprovisionamiento controlado de usuarios y las com
 - Instalación: [requisitos](docs/03-instalacion/requisitos.md), [desarrollo](docs/03-instalacion/instalacion-desarrollo.md), [configuración](docs/03-instalacion/configuracion.md), [producción](docs/03-instalacion/despliegue-produccion.md) y [problemas](docs/03-instalacion/solucion-problemas.md).
 - Datos: [modelo](docs/04-base-datos/modelo-datos.md), [diccionario](docs/04-base-datos/diccionario-datos.md), [relaciones](docs/04-base-datos/relaciones.md) e [inicialización](docs/04-base-datos/inicializacion.md).
 - API: [catálogo](docs/05-api/api.md), [autenticación](docs/05-api/autenticacion.md) y [códigos](docs/05-api/codigos-respuesta.md).
+- Manuales: [usuario](docs/06-manual-usuario/manual-usuario.md) y [administración](docs/07-manual-administrador/manual-administrador.md).
 - Desarrollo: [estructura](docs/08-desarrollo/estructura-proyecto.md), [guía](docs/08-desarrollo/guia-desarrollo.md), [convenciones](docs/08-desarrollo/convenciones.md) y [mantenimiento](docs/08-desarrollo/mantenimiento.md).
+- Publicación: [Software Público Peruano](docs/09-publicacion-software-publico.md).
 - Pruebas: [plan de pruebas](docs/10-pruebas/plan-pruebas.md).
 
 ## Base de datos
@@ -185,3 +190,4 @@ Use únicamente:
 - Texto legal: [LICENSE](LICENSE)
 - Aviso en español: [LICENCIA.txt](LICENCIA.txt)
 - Atribuciones: [NOTICE](NOTICE)
+- Componentes de terceros: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)

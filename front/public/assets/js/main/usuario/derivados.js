@@ -1,3 +1,5 @@
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 export async function inicializar_derivados() {
     iniciar_data_table();
 }

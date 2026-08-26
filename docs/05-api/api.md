@@ -1,5 +1,7 @@
 # API HTTP
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 ## Convenciones reales
 
 - URL local del backend: `http://localhost:5004`.

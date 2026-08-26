@@ -1,5 +1,7 @@
 # Relaciones y restricciones
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 ## Relaciones usadas por la aplicación
 
 | Desde | Hacia | Cardinalidad lógica | Evidencia |

@@ -1,5 +1,7 @@
 # Inicialización de PostgreSQL
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 ## Procedimiento
 
 1. Instale PostgreSQL 17.6 o una versión compatible.

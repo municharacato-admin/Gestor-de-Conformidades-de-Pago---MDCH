@@ -1,3 +1,5 @@
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 fetch(check_session, {
     method: "GET",
     credentials: "include"

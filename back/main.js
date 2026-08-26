@@ -1,3 +1,5 @@
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 import express from "express";
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
@@ -35,10 +37,21 @@ import { get_estadisticas_usuario } from "./src/GET/get_estadisticas_usuario.js"
  */
 dotenv.config();
 const app = express();
-const PORT = 5004; // Cambia el puerto según tus necesidades
+const PORT = Number(process.env.PORT) || 5004;
+const allowedOrigins = (process.env.CORS_ORIGIN || "http://localhost:5003")
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
 
 app.use(cors({
-  origin: true,
+  origin(origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+      return;
+    }
+
+    callback(new Error("Origen no permitido por CORS"));
+  },
   credentials: true,
   exposedHeaders: ["set-cookie"]
 }));

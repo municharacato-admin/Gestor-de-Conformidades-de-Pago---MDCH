@@ -1,5 +1,7 @@
 # Base de datos
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 ## Motor y alcance
 
 El sistema usa PostgreSQL mediante `pg 8.16.3`. La estructura de referencia corresponde a PostgreSQL 17.6.

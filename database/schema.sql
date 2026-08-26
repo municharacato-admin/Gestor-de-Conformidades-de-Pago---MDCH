@@ -1,3 +1,5 @@
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 -- Gestor de Conformidades de Pago – MDCH
 -- Esquema estructural derivado de database/bk-clean.sql.
 -- No contiene datos, propietarios, credenciales ni valores de secuencia.

@@ -1,8 +1,10 @@
 # Despliegue en producción
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 ## Configuración por ambiente
 
-Inyecte `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASSWORD` y `SECRET_JWT_KEY` desde el mecanismo de secretos del ambiente. `CORS_ORIGIN` también debe definirse y el código debe corregirse para usarla. No incluya valores en imágenes, unidades de servicio o repositorios. Consulte la [referencia de configuración](configuracion.md).
+Inyecte `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASSWORD` y `SECRET_JWT_KEY` desde el mecanismo de secretos del ambiente. Defina también `PORT` y uno o más valores de `CORS_ORIGIN`, separados por comas cuando corresponda. Consulte la [referencia de configuración](configuracion.md).
 
 ## Topología propuesta
 
@@ -31,9 +33,9 @@ Nginx, Apache HTTP Server o Caddy para proxy, y systemd o PM2 para proceso, son 
 ## Node.js
 
 - fije una versión LTS probada mediante política institucional;
-- use `npm ci` con lockfiles versionados cuando existan;
+- use `npm ci` con los lockfiles versionados;
 - ejecute con usuario de sistema sin shell/privilegios innecesarios;
-- añada scripts `start` y health/readiness;
+- añada health/readiness al proceso de producción;
 - configure reinicio automático y límites;
 - implemente manejo de `SIGTERM` para dejar de aceptar tráfico y cerrar el pool.
 

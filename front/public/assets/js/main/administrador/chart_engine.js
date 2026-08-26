@@ -1,3 +1,5 @@
+/* @license Apache-2.0; ver LICENCIA.txt */
+
 import { run_kpi_cards_engine } from "./charts/kpi_global_cards.js";
 import { render_chart_rendimiento_ponderado } from "./charts/rendimiento_ponderado.js";
 import { render_chart_distribucion_estado } from "./charts/distribucion_estado.js";

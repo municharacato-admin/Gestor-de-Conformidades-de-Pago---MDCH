@@ -1,5 +1,7 @@
 # Plan de pruebas
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 ## Estado
 
 No existen scripts ni archivos de pruebas automatizadas en `back/package.json` o `front/package.json`. Todos los casos se inicializan como **PENDIENTE DE EJECUCIÓN**.

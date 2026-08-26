@@ -1,5 +1,7 @@
 # Mantenimiento
 
+> Documentación liberada bajo Apache License 2.0. Consulte LICENSE y LICENCIA.txt.
+
 ## Calendario sugerido
 
 | Frecuencia | Actividad |
@@ -99,8 +101,8 @@ La versión mostrada en UI debe unificarse con el paquete.
 1. seguridad crítica;
 2. dump con datos;
 3. transacciones/integridad;
-4. tests/CI/lockfiles;
-5. configuración por entorno;
+4. pruebas y CI;
+5. ampliar la configuración por entorno;
 6. observabilidad;
 7. rendimiento/paginación del lado servidor;
 8. métricas y regla de negocio;
