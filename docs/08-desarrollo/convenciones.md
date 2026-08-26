@@ -1,6 +1,6 @@
 # Convenciones
 
-## Convenciones observadas
+## Convenciones del proyecto
 
 Estas describen el código, no necesariamente prácticas recomendadas.
 

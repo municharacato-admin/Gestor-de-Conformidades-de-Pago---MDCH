@@ -70,13 +70,13 @@ Producción debe reemplazarlo por una lista exacta y rechazar otros orígenes. C
 | `Secure` | true | requiere HTTPS |
 | `SameSite` | None | requiere protección CSRF |
 | `Path` | / | envía a todas las rutas del host API |
-| duración | 48 h | política pendiente |
+| duración | 48 h | duración de la sesión |
 
 Si frontend/API comparten sitio, evalúe `SameSite=Lax/Strict` según los flujos reales. La decisión debe probarse, no asumirse.
 
 ## PostgreSQL
 
-`connect_db.js` no admite variables para TLS, pool, timeouts o nombre de aplicación. Son pendientes de producción.
+`connect_db.js` no admite variables para TLS, pool, timeouts o nombre de aplicación.
 
 ## Secretos
 

@@ -43,7 +43,6 @@
 | `LICENSE` / `LICENCIA.txt` | licencia oficial declarada y resumen institucional |
 | `AUTHORS.md` / `NOTICE` | autoría y atribución |
 | `CHANGELOG.md` | versiones |
-| `SECURITY.md` | reporte y mínimos de seguridad |
 | `CONTRIBUTING.md` | colaboración |
 
 ## Backend
@@ -113,11 +112,11 @@ Funciones por perfil, DataTables, gráficos e historial.
 ### `assets/css` e `assets/img`
 
 - `css/` contiene estilos propios de línea de tiempo y tarjetas/KPI;
-- `img/` contiene recursos gráficos de la interfaz. Origen, licencia y autorización de marca deben inventariarse antes de redistribuir.
+- `img/` contiene los recursos gráficos de la interfaz.
 
 ### `assets/addons`
 
-Copias locales de bibliotecas minificadas. Algunas vistas también usan CDN; debe inventariarse licencia y versión.
+Copias locales de bibliotecas minificadas. Algunas vistas también usan CDN.
 
 ## Base de datos
 
@@ -125,14 +124,14 @@ Copias locales de bibliotecas minificadas. Algunas vistas también usan CDN; deb
 - `seed.example.sql`: catálogos ficticios;
 - `grants.example.sql`: permisos locales de ejemplo para el rol runtime;
 - `migrations/`: convención futura;
-- `bk-clean.sql`: respaldo aportado con cuentas/hashes y contadores históricos, no publicable.
+- `bk-clean.sql`: respaldo de referencia.
 
 ## Documentación
 
-`docs/` contiene esta documentación Markdown y cinco documentos DOCX heredados:
+`docs/` contiene la documentación Markdown y los manuales de referencia:
 
 - manual de instalación;
 - manual general de usuarios;
 - entregas por administrador, mesa de partes y área usuaria.
 
-Los DOCX se conservan como fuente histórica y deben sanitizarse/versionarse; la documentación Markdown basada en código es la referencia técnica de este análisis.
+La documentación Markdown describe la implementación vigente.

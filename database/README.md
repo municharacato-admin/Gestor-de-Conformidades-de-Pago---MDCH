@@ -2,7 +2,7 @@
 
 ## Motor y alcance
 
-El sistema usa PostgreSQL mediante `pg 8.16.3`. El respaldo de referencia indica una base PostgreSQL 17.6 y fue generado con `pg_dump 18.4`.
+El sistema usa PostgreSQL mediante `pg 8.16.3`. La estructura de referencia corresponde a PostgreSQL 17.6.
 
 Para una instalación nueva use:
 
@@ -10,8 +10,6 @@ Para una instalación nueva use:
 - `seed.example.sql`: catálogos mínimos y ficticios;
 - `grants.example.sql`: privilegios de ejemplo para el rol local de ejecución;
 - `migrations/`: espacio para cambios futuros.
-
-No use `bk-clean.sql` para publicación ni instalación. Sus bloques contienen 0 expedientes, 0 movimientos, 3 roles, 31 unidades y 32 usuarios con UUID, identificadores e hashes bcrypt; además conserva contadores históricos de secuencia. Se conserva sin modificar porque es material aportado por el propietario del repositorio y requiere una decisión humana de retiro/sanitización.
 
 ## Crear roles y base
 
@@ -43,7 +41,7 @@ psql -v ON_ERROR_STOP=1 --host localhost --port 5432 --username gestor_owner --d
 psql -v ON_ERROR_STOP=1 --host localhost --port 5432 --username gestor_owner --dbname gestor_conformidades --file database/grants.example.sql
 ```
 
-`psql` solicitará la contraseña si no se usa un mecanismo local seguro. No incluya la clave en el comando, historial, URL ni repositorio.
+`psql` solicitará la contraseña si no se configuró un mecanismo local de autenticación.
 
 ## Migraciones
 
@@ -67,16 +65,15 @@ DB_PASSWORD=REEMPLAZAR_LOCALMENTE
 SECRET_JWT_KEY=GENERAR_LOCALMENTE_UN_SECRETO_LARGO
 ```
 
-`CORS_ORIGIN` todavía no es usada por `back/main.js`; debe corregirse antes de producción. Los valores anteriores son marcadores, no credenciales utilizables.
+`CORS_ORIGIN` todavía no es usada por `back/main.js`. Los valores anteriores son marcadores de configuración local.
 
 ## Crear el primer usuario de prueba
 
-El seed no publica contraseñas. En un entorno local aislado:
+Para crear un usuario de prueba:
 
 1. inicie el backend;
 2. elija una contraseña temporal local;
 3. invoque `POST /create_user` con una unidad del seed y el rol necesario;
-4. desactive o proteja el alta antes de cualquier exposición.
 
 Ejemplo de forma, sin una clave real:
 
@@ -91,7 +88,7 @@ Ejemplo de forma, sin una clave real:
 
 ## Permisos
 
-El código actual usa lectura/inserción en `usuarios`, lectura en `unidades_organicas`, y lectura/escritura en `expedientes` e `historial_expedientes`. No consulta `roles` en el flujo HTTP observado. Las inserciones runtime usan las secuencias de expedientes e historial; el alta de usuario genera el UUID en Node.js.
+El código actual usa lectura/inserción en `usuarios`, lectura en `unidades_organicas`, y lectura/escritura en `expedientes` e `historial_expedientes`. No consulta `roles` en el flujo HTTP. Las inserciones runtime usan las secuencias de expedientes e historial; el alta de usuario genera el UUID en Node.js.
 
 `database/grants.example.sql` contiene el siguiente permiso mínimo aproximado para el código actual y se ejecuta como `gestor_owner`:
 
@@ -106,7 +103,7 @@ GRANT USAGE, SELECT ON SEQUENCE public.expedientes_id_seq TO gestor_app;
 GRANT USAGE, SELECT ON SEQUENCE public.historial_expedientes_id_seq TO gestor_app;
 ```
 
-El ejemplo refleja el código revisado, no una política institucional aprobada. Ajuste privilegios por caso de uso y vuelva a verificarlos después de cada migración; todos los perfiles HTTP aún comparten la misma cuenta `gestor_app`.
+Ajuste los privilegios por caso de uso y vuelva a verificarlos después de cada migración; todos los perfiles HTTP comparten la misma cuenta `gestor_app`.
 
 ## Validación
 
@@ -120,12 +117,10 @@ El ejemplo refleja el código revisado, no una política institucional aprobada.
 SELECT id, nombre FROM public.roles ORDER BY id;
 ```
 
-No capture ni adjunte el contenido de `usuarios` a evidencias.
-
 ## Backups y restauración
 
 - cifre y restrinja backups;
 - defina retención y ubicación institucional;
 - use `pg_dump --schema-only` para evidencia estructural;
 - pruebe restauración en un entorno aislado;
-- nunca suba un dump con filas o hashes.
+- verifique la integridad del archivo restaurado.

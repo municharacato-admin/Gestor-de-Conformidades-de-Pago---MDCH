@@ -1,6 +1,6 @@
 # Requisitos del sistema
 
-## Evidencia técnica observada
+## Requisitos técnicos
 
 | Componente | Evidencia | Estado |
 | --- | --- | --- |

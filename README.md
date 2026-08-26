@@ -2,20 +2,20 @@
 
 Aplicación web para registrar y seguir expedientes de conformidad de pago entre las unidades orgánicas de la Municipalidad Distrital de Characato (MDCH).
 
-## Identificación
+## Información general
 
-| Campo | Valor comprobado |
+| Campo | Detalle |
 | --- | --- |
 | Nombre | Gestor de Conformidades de Pago – MDCH |
 | Sigla oficial | GCP |
-| Entidad indicada | Municipalidad Distrital de Characato |
+| Entidad | Municipalidad Distrital de Characato |
 | Descripción | seguimiento web de expedientes de conformidad de pago entre unidades |
 | Finalidad | centralizar trazabilidad, plazos, bandejas e indicadores hasta cancelación o pago |
 | Versión de paquetes | `1.0.0` |
 | Licencia declarada en los paquetes | Apache License 2.0 |
 | Titularidad | Municipalidad Distrital de Characato |
 
-## Funcionalidad observada
+## Funcionalidad
 
 El sistema implementa tres experiencias de interfaz:
 
@@ -23,7 +23,7 @@ El sistema implementa tres experiencias de interfaz:
 - **Unidad orgánica:** recibe, revierte recepción, deriva, retira una derivación no recibida, cancela o registra el pago; además consulta bandejas e indicadores.
 - **Administrador:** consulta el universo de expedientes, el historial, vencimientos, indicadores, pipeline y retrasos por área.
 
-Los beneficios institucionales esperables de las funciones observadas son una consulta común del recorrido, detección de vencimientos o faltas de recepción, priorización por área y exportación controlada. Su obtención efectiva depende de corregir los bloqueos de seguridad e integridad.
+Estas funciones permiten consultar el recorrido de los expedientes, detectar vencimientos o recepciones pendientes, priorizar la atención por área y exportar los resultados.
 
 ## Arquitectura
 
@@ -39,7 +39,7 @@ El frontend sirve HTML y JavaScript estático. La API mezcla rutas, lógica y SQ
 
 ## Tecnologías
 
-| Tecnología | Versión observable | Función |
+| Tecnología | Versión | Función |
 | --- | --- | --- |
 | Node.js | 24.19.0 | runtime de ambos procesos |
 | Express | 5.1.0 | API y servidor estático |
@@ -47,7 +47,7 @@ El frontend sirve HTML y JavaScript estático. La API mezcla rutas, lógica y SQ
 | pg | 8.16.3 | pool y consultas PostgreSQL |
 | bcrypt | 6.0.0 | hash y comparación de contraseñas |
 | jsonwebtoken | 9.0.2 | creación y verificación del JWT |
-| Joi | 18.0.1 | validación de login/alta; actualización de seguridad pendiente |
+| Joi | 18.0.1 | validación de inicio de sesión y alta de usuarios |
 | cookie-parser / cors / dotenv | 1.4.7 / 2.8.5 / 17.2.3 | cookies, CORS y entorno |
 | JavaScript, HTML y CSS | sin versión | lógica e interfaz multipágina |
 | AdminLTE / Bootstrap | 4.0.0-rc3 / 5.3.6 | layout y componentes |
@@ -60,7 +60,7 @@ El frontend sirve HTML y JavaScript estático. La API mezcla rutas, lógica y SQ
 ├── back/                       API Node.js
 ├── front/                      servidor y aplicación web
 ├── database/
-│   ├── schema.sql              DDL publicable sin datos
+│   ├── schema.sql              estructura de la base de datos
 │   ├── seed.example.sql        catálogo ficticio de demostración
 │   └── migrations/README.md
 ├── docs/                       documentación técnica y manuales
@@ -86,7 +86,7 @@ git clone https://github.com/municharacato-admin/Gestor-de-Conformidades-de-Pago
 cd Gestor-de-Conformidades-de-Pago---MDCH
 ```
 
-### 1. Crear el esquema seguro
+### 1. Crear el esquema
 
 ```powershell
 psql --dbname postgres
@@ -125,7 +125,7 @@ DB_PASSWORD=REEMPLAZAR_LOCALMENTE
 SECRET_JWT_KEY=GENERAR_UN_SECRETO_ALEATORIO_LOCAL
 ```
 
-`CORS_ORIGIN` está declarada, pero el código actual no la usa. No confirme `back/.env` ni publique su contenido.
+`CORS_ORIGIN` está declarada, pero el código actual no la usa.
 
 ### 3. Instalar y ejecutar
 
@@ -147,8 +147,6 @@ npm run dev
 
 Antes de abrir `http://localhost:5003`, edite localmente `front/public/assets/js/common/config.js` para que `base_url` apunte al backend y termine en `/`.
 
-> La cookie actual usa `Secure; SameSite=None`. Su funcionamiento sobre HTTP local varía según navegador y origen. La guía no constituye una prueba integral hasta definir HTTPS local o atributos por ambiente.
-
 La instalación detallada, el aprovisionamiento controlado de usuarios y las comprobaciones están en [Instalación de desarrollo](docs/03-instalacion/instalacion-desarrollo.md).
 
 ## Flujo básico
@@ -159,20 +157,16 @@ La instalación detallada, el aprovisionamiento controlado de usuarios y las com
 4. La unidad recibe y puede derivar, cancelar o registrar el pago.
 5. Administración consulta estado, vencimiento, indicadores e historial.
 
-No use datos personales o expedientes reales durante las pruebas. Las reglas y limitaciones se explican en el [Manual de usuario](docs/06-manual-usuario/manual-usuario.md).
-
 ## Documentación
 
-- [Índice y diagnóstico documental](docs/README.md)
+- [Índice de documentación](docs/README.md)
 - Descripción: [general](docs/01-descripcion-general/descripcion-general.md).
 - Arquitectura: [software](docs/02-arquitectura/arquitectura-software.md), [backend](docs/02-arquitectura/arquitectura-backend.md), [frontend](docs/02-arquitectura/arquitectura-frontend.md) y [flujos](docs/02-arquitectura/flujo-informacion.md).
 - Instalación: [requisitos](docs/03-instalacion/requisitos.md), [desarrollo](docs/03-instalacion/instalacion-desarrollo.md), [configuración](docs/03-instalacion/configuracion.md), [producción](docs/03-instalacion/despliegue-produccion.md) y [problemas](docs/03-instalacion/solucion-problemas.md).
 - Datos: [modelo](docs/04-base-datos/modelo-datos.md), [diccionario](docs/04-base-datos/diccionario-datos.md), [relaciones](docs/04-base-datos/relaciones.md) e [inicialización](docs/04-base-datos/inicializacion.md).
 - API: [catálogo](docs/05-api/api.md), [autenticación](docs/05-api/autenticacion.md) y [códigos](docs/05-api/codigos-respuesta.md).
-- Manuales: [usuario](docs/06-manual-usuario/manual-usuario.md) y [administración](docs/07-manual-administrador/manual-administrador.md).
 - Desarrollo: [estructura](docs/08-desarrollo/estructura-proyecto.md), [guía](docs/08-desarrollo/guia-desarrollo.md), [convenciones](docs/08-desarrollo/convenciones.md) y [mantenimiento](docs/08-desarrollo/mantenimiento.md).
-- Calidad: [seguridad](docs/09-seguridad/seguridad.md), [pruebas](docs/10-pruebas/plan-pruebas.md) y [checklist de producción](docs/11-despliegue/checklist-produccion.md).
-- Software Público: [ficha](docs/12-software-publico/ficha-software.md), [requisitos](docs/12-software-publico/requisitos-publicacion.md), [evidencias](docs/12-software-publico/evidencias.md), [checklist](docs/12-software-publico/checklist-publicacion.md) y [reproducibilidad](docs/12-software-publico/prueba-reproducibilidad.md).
+- Pruebas: [plan de pruebas](docs/10-pruebas/plan-pruebas.md).
 
 ## Base de datos
 
@@ -182,8 +176,6 @@ Use únicamente:
 - [`database/seed.example.sql`](database/seed.example.sql) para datos ficticios;
 - [`database/grants.example.sql`](database/grants.example.sql) para el rol local de ejecución;
 - [`database/README.md`](database/README.md) para reglas de inicialización y saneamiento.
-
-`database/bk-clean.sql` se conserva como fuente de análisis y **debe excluirse de cualquier publicación** hasta ser eliminado del artefacto o sustituido mediante un proceso aprobado de saneamiento.
 
 ## Contribución y licencia
 

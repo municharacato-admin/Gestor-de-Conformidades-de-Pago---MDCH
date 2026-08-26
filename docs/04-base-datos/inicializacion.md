@@ -2,7 +2,7 @@
 
 ## Procedimiento
 
-1. Instale una versión compatible de PostgreSQL. La fuente comprobada es 17.6.
+1. Instale PostgreSQL 17.6 o una versión compatible.
 2. Cree un rol propietario/migrador, un rol de ejecución y una base UTF-8 sin escribir claves en comandos compartidos.
 3. Ejecute `database/schema.sql` con `ON_ERROR_STOP`.
 4. Ejecute `database/seed.example.sql`.
@@ -38,7 +38,7 @@ flowchart TD
 
 ## Migraciones
 
-No hay herramienta de migración implementada. La línea base es `schema.sql` y los cambios futuros deben registrarse en `database/migrations/`. La versión de esquema no se almacena aún en la base: **PENDIENTE DE DEFINIR**.
+No hay una herramienta de migración implementada. La línea base es `schema.sql` y los cambios futuros se registran en `database/migrations/`. La versión de esquema aún no se almacena en la base.
 
 ## Comprobaciones
 

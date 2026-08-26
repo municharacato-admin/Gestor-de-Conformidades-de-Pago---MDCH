@@ -128,9 +128,9 @@ En el perfil Administrador, Chart.js dibuja:
 
 El perfil Usuario ejecuta el gauge, la distribución y tarjetas por área; importa los módulos de actividad/área pero no los ejecuta. Las tarjetas KPI se construyen como HTML y barras de Bootstrap, no como gráficos Chart.js.
 
-Las fórmulas de rendimiento global y por área no son iguales; en particular, cancelados penalizan una y suman positivamente en otra. La definición institucional del KPI está **PENDIENTE DE CONFIRMACIÓN**.
+Las fórmulas de rendimiento global y por área no son iguales; en particular, los expedientes cancelados penalizan una y suman positivamente en otra. La definición institucional del KPI debe unificarse.
 
-## Bibliotecas observadas
+## Bibliotecas
 
 | Biblioteca | Versión observable | Uso |
 | --- | --- | --- |

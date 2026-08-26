@@ -24,7 +24,7 @@
 | no aparece botón de pago | UUID del cliente no coincide | no modifique el UUID: implemente permisos de servidor |
 | respuesta 401 | cookie ausente/expirada | vuelva a iniciar sesión después de corregir login |
 | respuesta 403 | JWT inválido | borre cookie, revise secreto/host y autentique de nuevo |
-| error 200 con `success:false` | contrato actual de negocio | lea `message`; normalizar códigos es pendiente |
+| error 200 con `success:false` | contrato actual de negocio | lea `message` y normalice los códigos de respuesta |
 | caracteres/fechas extraños | formato/zona heterogéneos | use UTF-8 y normalice API a ISO 8601 |
 | CDN no carga | Internet, CSP o URL externa | empaquete recursos o autorice fuente aprobada |
 

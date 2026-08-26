@@ -105,4 +105,4 @@ La versión mostrada en UI debe unificarse con el paquete.
 7. rendimiento/paginación del lado servidor;
 8. métricas y regla de negocio;
 9. accesibilidad/cadena de suministro;
-10. documentación administrativa pendiente.
+10. documentación administrativa.

@@ -6,10 +6,6 @@ El **Gestor de Conformidades de Pago – MDCH** es una aplicación web de la Mun
 
 El repositorio contiene una interfaz multipágina, una API Node.js y un esquema PostgreSQL.
 
-## Antecedentes
-
-El material disponible combina el código actual, un dump PostgreSQL y cinco manuales DOCX heredados. No hay historial previo que permita reconstruir formalmente el origen o las etapas del proyecto. Los DOCX usan nombres/versiones y requisitos que no siempre coinciden con el repositorio; por ello se conservan como contexto y la implementación revisada se usa como fuente técnica principal.
-
 ## Problema que aborda
 
 El código busca dar visibilidad a:
@@ -23,7 +19,7 @@ El código busca dar visibilidad a:
 - historial de oficinas;
 - expedientes en proceso, retrasados y pendientes de recepción.
 
-No se identificaron integraciones con un sistema contable, trámite documentario, firma digital, notificaciones o almacenamiento de archivos.
+La versión actual no integra sistemas contables, trámite documentario, firma digital, notificaciones ni almacenamiento de archivos.
 
 ## Objetivo general
 
@@ -38,7 +34,7 @@ Centralizar el registro y seguimiento de expedientes de conformidad de pago, mos
 5. facilitar consulta global y seguimiento por área;
 6. producir indicadores de volumen, estado, retraso y pipeline.
 
-## Alcance funcional comprobado
+## Alcance funcional
 
 ### Mesa de partes
 
@@ -74,7 +70,7 @@ No existe interfaz para administrar usuarios, roles, unidades, parámetros o la 
 
 El catálogo y el router usan:
 
-| ID | Perfil de interfaz | Propósito observado |
+| ID | Perfil de interfaz | Propósito |
 | --- | --- | --- |
 | 1 | Administrador | consulta e indicadores globales |
 | 2 | Mesa de partes | registro y envío inicial |
@@ -96,9 +92,7 @@ flowchart LR
     A[Administrador] -. consulta global .-> H
 ```
 
-## Beneficios esperables
-
-Derivados directamente de las funciones implementadas:
+## Beneficios
 
 - una fuente común de seguimiento;
 - trazabilidad de movimientos y recepción;
@@ -119,7 +113,7 @@ Derivados directamente de las funciones implementadas:
 - formatos temporales heterogéneos;
 - estados y relaciones no restringidos por la base;
 
-## Exclusiones comprobadas
+## Funciones no incluidas
 
 No se encuentran implementados:
 

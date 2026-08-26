@@ -1,33 +1,28 @@
 # Contribuir al Gestor de Conformidades de Pago – MDCH
 
-Gracias por contribuir. Estas reglas son una propuesta para ordenar el trabajo; el historial disponible no demuestra que ya se aplique una estrategia de ramas formal.
+Estas pautas ordenan el desarrollo y la revisión de cambios en el proyecto.
 
 ## Preparación
 
-1. Lea `README.md`, `SECURITY.md` y `docs/08-desarrollo/guia-desarrollo.md`.
-2. Cree un fork o clone el repositorio. La URL pública oficial está
-   **PENDIENTE DE DEFINIR**; cuando se publique, use:
+1. Lea `README.md` y `docs/08-desarrollo/guia-desarrollo.md`.
+2. Clone el repositorio:
 
    ```powershell
-   git clone <URL_REPOSITORIO>
+   git clone https://github.com/municharacato-admin/Gestor-de-Conformidades-de-Pago---MDCH.git
    cd "Gestor de Conformidades de Pago - MDCH"
    git remote -v
    ```
 
-   Si trabaja desde un fork, clone su URL y configure el repositorio
-   institucional como remoto `upstream`.
 3. Instale por separado las dependencias de `back/` y `front/`.
 4. Use únicamente datos ficticios y un archivo `back/.env` local.
-5. Verifique que ninguna credencial, respaldo ni dato personal se incluya en el cambio.
 
 ## Estrategia Git recomendada
 
-- `main`: versiones publicables.
+- `main`: versión estable.
 - `develop`: integración cuando el equipo decida usar una rama intermedia.
 - `feature/<descripcion>`: funcionalidad.
 - `fix/<descripcion>`: corrección.
 - `docs/<descripcion>`: documentación.
-- `security/<descripcion>`: corrección de seguridad coordinada de manera privada.
 
 Use nombres breves, minúsculas y guiones, por ejemplo `feature/validar-expediente`.
 
@@ -51,10 +46,9 @@ Incluya:
 - problema y solución;
 - alcance y archivos principales;
 - pasos de prueba y resultado;
-- impacto en API, base de datos, seguridad y documentación;
+- impacto en API, base de datos y documentación;
 - migración y plan de reversión cuando aplique;
 - capturas sin datos reales si cambia la interfaz;
-- checklist de secretos y datos personales.
 
 Solicite al menos una revisión técnica. Los cambios de autenticación, permisos, licencia, esquema o datos requieren además revisión del responsable institucional correspondiente.
 
@@ -81,10 +75,6 @@ Mantenga:
 ## Cambios de base de datos
 
 No edite respaldos con datos. Añada una migración numerada y reversible en `database/migrations/`, actualice `database/schema.sql` y el diccionario de datos, y pruebe tanto instalación limpia como actualización.
-
-## Seguridad
-
-No abra un issue público para una vulnerabilidad explotable. Siga `SECURITY.md`. Si descubre un secreto o dato personal en el historial, detenga la publicación y comuníquelo por el canal privado institucional cuando sea designado.
 
 ## Licencia y atribución
 

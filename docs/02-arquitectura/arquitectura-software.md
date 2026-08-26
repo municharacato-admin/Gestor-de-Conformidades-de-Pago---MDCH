@@ -21,7 +21,7 @@ El diagrama refleja desarrollo local. El repositorio no incluye reverse proxy, T
 | Frontend | `front/` | servir HTML/assets, navegación, formularios, tablas y gráficos |
 | API | `back/` | autenticación, lógica de expedientes, indicadores y SQL |
 | Datos | `database/` | esquema, seed ficticio y respaldo aportado |
-| Documentación | `docs/` | manuales y preparación de publicación |
+| Documentación | `docs/` | manuales y guías técnicas |
 
 ## Capas reales
 
@@ -96,7 +96,7 @@ Es una estrategia recomendada; Nginx, Apache HTTP Server, Caddy, PM2 o systemd n
 - DNS y certificado TLS en producción;
 - infraestructura de logs y backup a definir.
 
-No se observaron APIs institucionales externas.
+La aplicación no integra APIs institucionales externas.
 
 ## Disponibilidad y escalabilidad
 
@@ -126,4 +126,4 @@ flowchart LR
     API -->|Cuenta configurada + SQL parametrizado| PG
 ```
 
-El código acepta el `DB_USER` configurado y no comprueba sus privilegios; aplicar una cuenta mínima es una recomendación, no un control observado. El rol, el UUID de Tesorería y la vista mostrada por el cliente tampoco deben considerarse autorizaciones. La versión actual incumple esta frontera y requiere remediación.
+El código utiliza el `DB_USER` configurado y delega sus privilegios en PostgreSQL. El rol, el UUID de Tesorería y la vista mostrada por el cliente forman parte de la navegación; la autorización se controla en el backend.

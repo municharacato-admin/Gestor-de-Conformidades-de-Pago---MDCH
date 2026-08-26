@@ -21,7 +21,7 @@ Ninguna está respaldada por `FOREIGN KEY` en el volcado.
 
 ## Acoplamientos de IDs
 
-| ID | Dependencia observada |
+| ID | Dependencia |
 | --- | --- |
 | rol 1 | vista administrador |
 | rol 2 | vista mesa de partes |
@@ -47,10 +47,10 @@ Antes de añadir restricciones:
 Ejemplo conceptual, **no ejecutable sin validación previa**:
 
 ```sql
--- PENDIENTE DE APROBACIÓN Y LIMPIEZA DE DATOS
+-- Aplicar después de normalizar los datos existentes
 ALTER TABLE historial_expedientes
   ADD CONSTRAINT fk_historial_expediente
   FOREIGN KEY (id_expediente) REFERENCES expedientes(id);
 ```
 
-No se incorporó al `schema.sql` porque alteraría la estructura comprobada.
+No se incorporó al `schema.sql` porque alteraría la estructura actual.
